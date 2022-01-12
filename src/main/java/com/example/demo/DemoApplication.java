@@ -18,7 +18,7 @@ public class DemoApplication {
 	}
 
 
-	@Component
+	//@Component
 	class SampleRunner implements CommandLineRunner {
 
 		private final VetRepository vetRepository;

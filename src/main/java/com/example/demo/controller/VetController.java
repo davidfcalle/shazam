@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Clock;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -20,7 +21,7 @@ public class VetController {
     }
 
     @GetMapping("/vets")
-    public Iterable<VetVm> findAll() {
+    public List<VetVm> findAll() {
         return service.findAll()
                 .stream().map(this::toVm)
                 .collect(Collectors.toList());
@@ -36,5 +37,7 @@ public class VetController {
                 Clock.systemUTC()
         ));
     }
+
+    //  TODO: Agregar rating a los veterinarios y crear un endpoint que devuelva todos los vets con rating > X
 
 }
